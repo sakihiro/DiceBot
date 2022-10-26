@@ -44,6 +44,7 @@ async def on_message(message):
     param = input[1]
 
     print({
+        "author": author,
         "command": command,
         "param": param,
     })
@@ -56,7 +57,6 @@ async def on_message(message):
     if not match:
         await message.channel.send("/dice 1d100 の形式で入力してください")
         return
-    print(match.groups(), match.group(1), match.group(2))
     # 乱数を生成
     result = []
     for i in range(int(match.group(1))):
